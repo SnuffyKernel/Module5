@@ -47,7 +47,7 @@ static ssize_t kbleds_show(struct kobject *kobj, struct kobj_attribute *attr, ch
 static ssize_t kbleds_store(struct kobject *kobj, struct kobj_attribute *attr, const char *buf, size_t count)
 {
     int temp;
-    sscanf(buf, "%du", &test);
+    sscanf(buf, "%du", &temp);
     test = temp;
     return count;
 }
@@ -70,7 +70,7 @@ static int __init kbleds_init(void)
     }
     printk(KERN_INFO "kbleds: finished scanning consoles\n");
     my_driver = vc_cons[fg_console].d->port.tty->driver;
-    printk(KERN_INFO "kbleds: tty driver magic %x\n", my_driver->name);
+    printk(KERN_INFO "kbleds: tty driver magic %s\n", my_driver->name);
 
     timer_setup(&my_timer, my_timer_func, 0);
     my_timer.expires = jiffies + BLINK_DELAY;
