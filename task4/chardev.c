@@ -9,7 +9,7 @@
 
 #define SUCCESS 0
 #define DEVICE_NAME "chardev"
-#define BUF_LEN 80
+#define BUF_LEN 128
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Snuffy");
